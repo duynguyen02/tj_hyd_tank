@@ -1,0 +1,458 @@
+{
+    "basin_def": {
+        "W310": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 6.3298,
+            "downstream": "Outlet1"
+        },
+        "W300": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 27.969,
+            "downstream": "J36"
+        },
+        "W290": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 2.033,
+            "downstream": "J36"
+        },
+        "W270": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 23.768,
+            "downstream": "J41"
+        },
+        "W260": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 25.27,
+            "downstream": "J44"
+        },
+        "W250": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 18.996,
+            "downstream": "J47"
+        },
+        "W240": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 46.78,
+            "downstream": "J41"
+        },
+        "W230": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 18.856,
+            "downstream": "J52"
+        },
+        "W220": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 15.97,
+            "downstream": "J52"
+        },
+        "W200": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 7.4139,
+            "downstream": "J57"
+        },
+        "W190": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 16.121,
+            "downstream": "J57"
+        },
+        "W180": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 29.763,
+            "downstream": "J62"
+        },
+        "W170": {
+            "type": "Subbasin",
+            "parameters": {
+                "t0_is": 0.01,
+                "t0_boc": 0.1,
+                "t0_soc_uo": 0.1,
+                "t0_soc_lo": 0.1,
+                "t0_soh_uo": 75.0,
+                "t0_soh_lo": 0.0,
+                "t1_is": 0.01,
+                "t1_boc": 0.01,
+                "t1_soc": 0.01,
+                "t1_soh": 0.0,
+                "t2_is": 0.01,
+                "t2_boc": 0.01,
+                "t2_soc": 0.01,
+                "t2_soh": 0.0,
+                "t3_is": 0.01,
+                "t3_soc": 0.01
+            },
+            "area": 16.007,
+            "downstream": "J62"
+        },
+        "Outlet1": {
+            "type": "Junction",
+            "parameters": {},
+            "upstream": [
+                "W310",
+                "R160"
+            ]
+        },
+        "J36": {
+            "type": "Junction",
+            "parameters": {},
+            "downstream": "R160",
+            "upstream": [
+                "W300",
+                "W290",
+                "R140"
+            ]
+        },
+        "J41": {
+            "type": "Junction",
+            "parameters": {},
+            "downstream": "R120",
+            "upstream": [
+                "W270",
+                "W240"
+            ]
+        },
+        "J44": {
+            "type": "Junction",
+            "parameters": {},
+            "downstream": "R140",
+            "upstream": [
+                "W260",
+                "R120",
+                "R130"
+            ]
+        },
+        "J47": {
+            "type": "Junction",
+            "parameters": {},
+            "downstream": "R130",
+            "upstream": [
+                "W250",
+                "R80",
+                "R90"
+            ]
+        },
+        "J52": {
+            "type": "Junction",
+            "parameters": {},
+            "downstream": "R80",
+            "upstream": [
+                "W230",
+                "W220"
+            ]
+        },
+        "J57": {
+            "type": "Junction",
+            "parameters": {},
+            "downstream": "R90",
+            "upstream": [
+                "W200",
+                "W190",
+                "R40"
+            ]
+        },
+        "J62": {
+            "type": "Junction",
+            "parameters": {},
+            "downstream": "R40",
+            "upstream": [
+                "W180",
+                "W170"
+            ]
+        },
+        "R40": {
+            "type": "Reach",
+            "parameters": {
+                "k": 2.5,
+                "x": 0.25
+            },
+            "downstream": "J57",
+            "upstream": [
+                "J62"
+            ]
+        },
+        "R80": {
+            "type": "Reach",
+            "parameters": {
+                "k": 2.5,
+                "x": 0.25
+            },
+            "downstream": "J47",
+            "upstream": [
+                "J52"
+            ]
+        },
+        "R90": {
+            "type": "Reach",
+            "parameters": {
+                "k": 2.5,
+                "x": 0.25
+            },
+            "downstream": "J47",
+            "upstream": [
+                "J57"
+            ]
+        },
+        "R120": {
+            "type": "Reach",
+            "parameters": {
+                "k": 2.5,
+                "x": 0.25
+            },
+            "downstream": "J44",
+            "upstream": [
+                "J41"
+            ]
+        },
+        "R130": {
+            "type": "Reach",
+            "parameters": {
+                "k": 2.5,
+                "x": 0.25
+            },
+            "downstream": "J44",
+            "upstream": [
+                "J47"
+            ]
+        },
+        "R140": {
+            "type": "Reach",
+            "parameters": {
+                "k": 2.5,
+                "x": 0.25
+            },
+            "downstream": "J36",
+            "upstream": [
+                "J44"
+            ]
+        },
+        "R160": {
+            "type": "Reach",
+            "parameters": {
+                "k": 2.5,
+                "x": 0.25
+            },
+            "downstream": "Outlet1",
+            "upstream": [
+                "J36"
+            ]
+        }
+    },
+    "root_node": [
+        "Outlet1"
+    ]
+}
