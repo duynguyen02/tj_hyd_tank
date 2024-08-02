@@ -1,0 +1,677 @@
+Basin: CedarCreek
+     Description: HMS Model For Cedar Creek
+     Last Modified Date: 1 November 2010
+     Last Modified Time: 18:18:23
+     Version: 4.10
+     Filepath Separator: \
+     Unit System: English
+     Grid Cell File: CedarCreek.mod
+     Missing Flow To Zero: No
+     Enable Flow Ratio: No
+     Compute Local Flow At Junctions: No
+     Unregulated Output Required: No
+
+     Enable Sediment Routing: No
+
+     Enable Quality Routing: No
+End:
+
+Subbasin: W310
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 658813.695603162
+     Canvas Y: 4566675.75032761
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 6.3298
+     Downstream: Outlet1
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 78.870
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 143.19
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W300
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 648943.207364027
+     Canvas Y: 4568908.24597557
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 27.969
+     Downstream: J36
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 79.383
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 431.91
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W290
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 656089.995969677
+     Canvas Y: 4570479.19921949
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 2.0330
+     Downstream: J36
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 78.530
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 130.01
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W270
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 646572.604194793
+     Canvas Y: 4574400.0020915
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 23.768
+     Downstream: J41
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 79.486
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 420.6574281
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W260
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 659435.382921387
+     Canvas Y: 4574925.34786768
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 25.270
+     Downstream: J44
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 80.785
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 418.48
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W250
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 664908.446527462
+     Canvas Y: 4583109.86822107
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 18.996
+     Downstream: J47
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 79.782
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 437.83
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W240
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 650732.162577248
+     Canvas Y: 4579500.18084914
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 46.780
+     Downstream: J41
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 79.899
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 547.95
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W230
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 653079.142807183
+     Canvas Y: 4586177.41223953
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 18.856
+     Downstream: J52
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 78.684
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 331.3305954
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W220
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 658873.989888657
+     Canvas Y: 4585400.66734812
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 15.970
+     Downstream: J52
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 79.986
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 308.82
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W200
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 663916.853382424
+     Canvas Y: 4588307.71181984
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 7.4139
+     Downstream: J57
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 79.944
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 217.11
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W190
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 669620.61872423
+     Canvas Y: 4592252.3034631
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 16.121
+     Downstream: J57
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 79.380
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 356.06
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W180
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 656594.144558645
+     Canvas Y: 4592372.95839184
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 29.763
+     Downstream: J62
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 78.956
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 342.44
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Subbasin: W170
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 663915.862581427
+     Canvas Y: 4594628.56227425
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 16.007
+     Downstream: J62
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 80.379
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 299.04
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Junction: Outlet1
+     Description: Outlet1
+     Last Modified Date: 8 April 2023
+     Last Modified Time: 08:40:14
+     Canvas X: 661200.98708795
+     Canvas Y: 4564805.57941947
+     Label X: 16.0
+     Label Y: 16.0
+     Observed Hydrograph Gage: luuluong
+End:
+
+Junction: J36
+     Description: Generic junction
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 656459.761285873
+     Canvas Y: 4568156.86931866
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: R160
+End:
+
+Junction: J41
+     Description: Generic junction
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 656150.886640785
+     Canvas Y: 4572234.0146338
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: R120
+End:
+
+Junction: J44
+     Description: Generic junction
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 656119.999176277
+     Canvas Y: 4568712.84367982
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: R140
+End:
+
+Junction: J47
+     Description: Generic junction
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 662266.604613496
+     Canvas Y: 4578565.94485807
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: R130
+End:
+
+Junction: J52
+     Description: Generic junction
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 660413.356742977
+     Canvas Y: 4579801.44343842
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: R80
+End:
+
+Junction: J57
+     Description: Generic junction
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 666374.637393146
+     Canvas Y: 4586689.34802385
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: R90
+End:
+
+Junction: J62
+     Description: Generic junction
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 663749.202909911
+     Canvas Y: 4589530.99475864
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: R40
+End:
+
+Reach: R40
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 666374.637393146
+     Canvas Y: 4586689.34802385
+     From Canvas X: 663749.202909911
+     From Canvas Y: 4589530.99475864
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: J57
+
+     Route: Muskingum
+     Initial Variable: Combined Inflow
+     Muskingum K: 1
+     Muskingum x: 0.2
+     Muskingum Steps: 1
+     Channel Loss: None
+End:
+
+Reach: R80
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 662266.604613496
+     Canvas Y: 4578565.94485807
+     From Canvas X: 660413.356742977
+     From Canvas Y: 4579801.44343842
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: J47
+
+     Route: Muskingum
+     Initial Variable: Combined Inflow
+     Muskingum K: 1
+     Muskingum x: 0.2
+     Muskingum Steps: 1
+     Channel Loss: None
+End:
+
+Reach: R90
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 662266.604613496
+     Canvas Y: 4578565.94485807
+     From Canvas X: 666374.637393146
+     From Canvas Y: 4586689.34802385
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: J47
+
+     Route: Muskingum
+     Initial Variable: Combined Inflow
+     Muskingum K: 1
+     Muskingum x: 0.2
+     Muskingum Steps: 1
+     Channel Loss: None
+End:
+
+Reach: R120
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 656119.999176277
+     Canvas Y: 4568712.84367982
+     From Canvas X: 656150.886640785
+     From Canvas Y: 4572234.0146338
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: J44
+
+     Route: Muskingum
+     Initial Variable: Combined Inflow
+     Muskingum K: 1
+     Muskingum x: 0.2
+     Muskingum Steps: 1
+     Channel Loss: None
+End:
+
+Reach: R130
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 656119.999176277
+     Canvas Y: 4568712.84367982
+     From Canvas X: 662266.604613496
+     From Canvas Y: 4578565.94485807
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: J44
+
+     Route: Muskingum
+     Initial Variable: Combined Inflow
+     Muskingum K: 1
+     Muskingum x: 0.2
+     Muskingum Steps: 1
+     Channel Loss: None
+End:
+
+Reach: R140
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 656459.761285873
+     Canvas Y: 4568156.86931866
+     From Canvas X: 656119.999176277
+     From Canvas Y: 4568712.84367982
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: J36
+
+     Route: Muskingum
+     Initial Variable: Combined Inflow
+     Muskingum K: 1
+     Muskingum x: 0.2
+     Muskingum Steps: 1
+     Channel Loss: None
+End:
+
+Reach: R160
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 661200.98708795
+     Canvas Y: 4564805.57941947
+     From Canvas X: 656459.761285873
+     From Canvas Y: 4568156.86931866
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: Outlet1
+
+     Route: Muskingum
+     Initial Variable: Combined Inflow
+     Muskingum K: 1
+     Muskingum x: 0.2
+     Muskingum Steps: 1
+     Channel Loss: None
+End:
+
+Basin Layer Properties:
+     Element Layer:
+          Name: Icons
+          Layer shown: Yes
+     End Layer:
+End:
+
+Basin Spatial Properties:
+End:
+
+Basin Schematic Properties:
+     Last View N: 4600593.158845206
+     Last View S: 4558840.982848515
+     Last View W: 641963.0012889056
+     Last View E: 674230.2216301174
+     Maximum View N: 4600593.158845206
+     Maximum View S: 4558840.982848515
+     Maximum View W: 641963.0012889056
+     Maximum View E: 674230.2216301174
+     Extent Method: Elements
+     Buffer: 40
+     Draw Icons: Yes
+     Draw Icon Labels: Name
+     Draw Map Objects: No
+     Draw Gridlines: Yes
+     Draw Flow Direction: No
+     Draw HillShade Layer: Yes
+     Draw Elevation Layer: Yes
+     Elevation Layer Color Palette: Gray Scale
+     Ignore Elevation Color Ramp Scale: No
+     Use Interpolated Color Ramp for Elevation Layer: Yes
+     Color Ramp Opacity Level for Elevation Layer: 33.0
+     Fix Element Locations: No
+     Fix Hydrologic Order: No
+End:
