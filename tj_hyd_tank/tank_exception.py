@@ -1,3 +1,13 @@
+class InvalidBasinFileException(Exception):
+    def __init__(self):
+        super().__init__(f"Invalid basin file.")
+
+
+class FileNotFoundException(Exception):
+    def __init__(self, file: str):
+        super().__init__(f"{file} not found.")
+
+
 class MissingColumnsException(Exception):
     def __init__(self, col: str):
         super().__init__(f"Missing columns, please provide the following column: '{col}'.")

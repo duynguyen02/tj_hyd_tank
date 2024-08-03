@@ -1,105 +1,14 @@
-import numpy as np
+import pandas as pd
 
-a =  {"basin_def": {"W310": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 6.3298}, "W300": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 27.969}, "W290": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 2.033}, "W270": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 23.768}, "W260": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 25.27}, "W250": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 18.996}, "W240": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 46.78}, "W230": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 18.856}, "W220": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 15.97}, "W200": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 7.4139}, "W190": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 16.121}, "W180": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 29.763}, "W170": {
-    "parameters": {"t0_is": np.float64(0.01), "t0_boc": np.float64(0.1), "t0_soc_uo": np.float64(0.1),
-                   "t0_soc_lo": np.float64(0.1), "t0_soh_uo": np.float64(75.0), "t0_soh_lo": np.float64(0.0),
-                   "t1_is": np.float64(0.01), "t1_boc": np.float64(0.01), "t1_soc": np.float64(0.01),
-                   "t1_soh": np.float64(0.0), "t2_is": np.float64(0.01), "t2_boc": np.float64(0.01),
-                   "t2_soc": np.float64(0.01), "t2_soh": np.float64(0.0), "t3_is": np.float64(0.01),
-                   "t3_soc": np.float64(0.01)}, "area": 16.007},
-               "R40": {"parameters": {"k": np.float64(2.5), "x": np.float64(0.25)}},
-               "R80": {"parameters": {"k": np.float64(2.5), "x": np.float64(0.25)}},
-               "R90": {"parameters": {"k": np.float64(2.5), "x": np.float64(0.25)}},
-               "R120": {"parameters": {"k": np.float64(2.5), "x": np.float64(0.25)}},
-               "R130": {"parameters": {"k": np.float64(2.5), "x": np.float64(0.25)}},
-               "R140": {"parameters": {"k": np.float64(2.5), "x": np.float64(0.25)}},
-               "R160": {"parameters": {"k": np.float64(2.5), "x": np.float64(0.25)}}},
- "root_node": ["Basin", "Description", "Last Modified Date", "Last Modified Time", "Version", "Filepath Separator",
-               "Unit System", "Grid Cell File", "Missing Flow To Zero", "Enable Flow Ratio",
-               "Compute Local Flow At Junctions", "Unregulated Output Required", "Enable Sediment Routing",
-               "Enable Quality Routing", "Subbasin", "Canvas X", "Canvas Y", "Label X", "Label Y", "Area", "Downstream",
-               "Discretization", "File", "Canopy", "Allow Simultaneous Precip Et", "Plant Uptake Method", "Surface",
-               "LossRate", "Percent Impervious Area", "Curve Number", "Initial Abstraction", "Transform", "Lag",
-               "Unitgraph Type", "Baseflow", "Junction", "Observed Hydrograph Gage", "Reach", "From Canvas X",
-               "From Canvas Y", "Route", "Initial Variable", "Muskingum K", "Muskingum x", "Muskingum Steps",
-               "Channel Loss", "Basin Layer Properties", "Element Layer", "Name", "Layer shown", "End Layer",
-               "Basin Spatial Properties", "Basin Schematic Properties", "Last View N", "Last View S", "Last View W",
-               "Last View E", "Maximum View N", "Maximum View S", "Maximum View W", "Maximum View E", "Extent Method",
-               "Buffer", "Draw Icons", "Draw Icon Labels", "Draw Map Objects", "Draw Gridlines", "Draw Flow Direction",
-               "Draw HillShade Layer", "Draw Elevation Layer", "Elevation Layer Color Palette",
-               "Ignore Elevation Color Ramp Scale", "Use Interpolated Color Ramp for Elevation Layer",
-               "Color Ramp Opacity Level for Elevation Layer", "Fix Element Locations", "Fix Hydrologic Order", "W310",
-               "W300", "W290", "W270", "W260", "W250", "W240", "W230", "W220", "W200", "W190", "W180", "W170", "R40",
-               "R80", "R90", "R120", "R130", "R140", "R160"]}
+from tj_hyd_tank import TJHydTANK, TANKColNames
+
+TJHydTANK(
+    'CedarCreek.basin',
+    pd.read_csv('data_example.csv'),
+    TANKColNames(
+        date='Date',
+        precipitation='P',
+        evapotranspiration='E',
+        discharge='Q'
+    )
+)
