@@ -219,6 +219,7 @@ class TJHydTANK:
             bottom_outlet_flow=bottom_outlet_flow
         )
 
+        # Set result
         subbasin.Q_tank_0 = tank_storage[0]
         subbasin.Q_tank_1 = tank_storage[1]
         subbasin.Q_tank_2 = tank_storage[2]
@@ -292,11 +293,21 @@ class TJHydTANK:
 
                 computation_result[current_node.name] = sum_node
 
+        # set Q_sim for all BasinDef
         for basin_def in self._basin_defs:
             if basin_def.name in computation_result.columns:
                 basin_def.Q_sim = computation_result[basin_def.name].to_numpy()
 
+                # _compute_statistics
+                basin_def.calculate_stats(self._Q_obs)
+
+        return computation_result
+
     def _run(self):
         start, end = self._validate_dataset()
         self._init_data(start, end)
-        self._compute()
+        _ = self._compute()
+
+
+    def optimize(self):
+        ...

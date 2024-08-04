@@ -20,13 +20,67 @@ class BasinDefParams:
     #     return str(self.__dict__)
 
 
+@dataclasses.dataclass
+class BasinDefStatistics:
+    rmse: float = None
+    nse: float = None
+    r2: float = None
+    pbias: float = None
+
+
+def MSE(x: np.ndarray, y: np.ndarray):
+    return ((x - y) ** 2).sum() / x.shape[0]
+
+
+def RMSE(x: np.ndarray, y: np.ndarray):
+    return np.sqrt(MSE(x, y))
+
+
+def NSE(sim: np.ndarray, obs: np.ndarray):
+    obs_mean = obs.mean()
+    return 1 - (np.square(obs - sim).sum() / np.square(obs - obs_mean).sum())
+
+
+def R2(x: np.ndarray, y: np.ndarray):
+    n = x.shape[0]
+
+    NU = (n * ((x * y).sum()) - (x.sum()) * (y.sum())) ** 2
+    DE = (n * ((x ** 2).sum()) - (x.sum()) ** 2) * (n * ((y ** 2).sum()) - (y.sum()) ** 2)
+
+    return NU / DE
+
+
+def PBIAS(obs: np.ndarray, sim: np.ndarray):
+    return (obs - sim).sum() * 100 / obs.sum()
+
+
 class BasinDef:
     def __init__(self, name: str, hyd_e_type: BasinDefType):
         self._name = name
         self._type = hyd_e_type
         self._params: BasinDefParams = BasinDefParams()
+        self._stats: BasinDefStatistics = BasinDefStatistics()
         self._downstream: Optional['BasinDef'] = None
         self._upstream: List['BasinDef'] = []
+        self._Q_sim: Optional[np.ndarray] = None
+
+    def calculate_stats(self, Q_obs: np.ndarray):
+        self._stats.rmse = RMSE(Q_obs, self._Q_sim)
+        self._stats.nse = NSE(self._Q_sim, Q_obs)
+        self._stats.r2 = R2(self._Q_sim, Q_obs)
+        self._stats.pbias = PBIAS(self._Q_sim, Q_obs)
+
+    @property
+    def stats(self):
+        return self._stats
+
+    @property
+    def Q_sim(self):
+        return self._Q_sim
+
+    @Q_sim.setter
+    def Q_sim(self, value: Optional[np.ndarray]):
+        self._Q_sim = value
 
     @property
     def type(self):
@@ -102,16 +156,6 @@ class Subbasin(BasinDef):
         self._bottom_outlet_flow_tank_0: Optional[np.ndarray] = None
         self._bottom_outlet_flow_tank_1: Optional[np.ndarray] = None
         self._bottom_outlet_flow_tank_2: Optional[np.ndarray] = None
-
-        self._Q_sim: Optional[np.ndarray] = None
-
-    @property
-    def Q_sim(self):
-        return self._Q_sim
-
-    @Q_sim.setter
-    def Q_sim(self, value: Optional[np.ndarray]):
-        self._Q_sim = value
 
     @property
     def bottom_outlet_flow_tank_0(self) -> Optional[np.ndarray]:
