@@ -2,13 +2,15 @@ import dataclasses
 import datetime
 import os
 from queue import Queue
-from typing import Optional
+from typing import Optional, List
 
 import numpy as np
 import pandas as pd
+from matplotlib import pyplot as plt
+from scipy.optimize import minimize
 
 from .tj_hyd_tank_utils import build_basin_def_and_root_node
-from .basin_def import BasinDef, Subbasin, BasinDefType, Reach, Junction, Sink
+from .basin_def import BasinDef, Subbasin, BasinDefType, Reach, Junction, Sink, SubbasinParams, ReachParams, NSE
 from .tank_exception import FileNotFoundException, MissingColumnsException, ColumnContainsEmptyDataException, \
     InvalidDatetimeException, InvalidDatetimeIntervalException, InvalidStartDateException, InvalidEndDateException, \
     InvalidDateRangeException
@@ -57,6 +59,30 @@ class TJHydTANK:
         self._Q_obs: Optional[np.ndarray] = None
 
         # compute after setup basin
+        self._run()
+
+    @property
+    def basin_def(self):
+        return self._basin_defs
+
+    @property
+    def root_node(self):
+        return self._root_node
+
+    def reconfig_subbasin_params(
+            self,
+            subbasin: Subbasin,
+            subbasin_params: SubbasinParams,
+    ):
+        subbasin.params = subbasin_params
+        self._run()
+
+    def reconfig_reach_params(
+            self,
+            reach: Reach,
+            reach_params: ReachParams,
+    ):
+        reach.params = reach_params
         self._run()
 
     def _validate_dataset(self):
@@ -308,6 +334,102 @@ class TJHydTANK:
         self._init_data(start, end)
         _ = self._compute()
 
+    def _params_stack(self):
+        basin_def_order = []
+        stacked_parameter = []
 
-    def optimize(self):
-        ...
+        for basin_def in self._basin_defs:
+            if isinstance(basin_def, Subbasin) or isinstance(basin_def, Reach):
+                if isinstance(basin_def, Subbasin):
+                    stacked_parameter.extend(
+                        basin_def.params.to_list()
+                    )
+                elif isinstance(basin_def, Reach):
+                    stacked_parameter.extend(
+                        basin_def.params.to_list()
+                    )
+                basin_def_order.append(basin_def)
+        return basin_def_order, stacked_parameter
+
+    @staticmethod
+    def _update_basin_with_stack_params(basin_def_order: List[Subbasin | Reach], stacked_parameter: List[float]):
+        subbasin_steps = len(SubbasinParams().to_list())
+        reach_steps = len(ReachParams().to_list())
+        _from = 0
+        for basin_def in basin_def_order:
+            if isinstance(basin_def, Subbasin):
+                steps = _from + subbasin_steps
+                basin_def.params = SubbasinParams(*stacked_parameter[_from: steps])
+                _from = steps
+            if isinstance(basin_def, Reach):
+                steps = _from + reach_steps
+                basin_def.params = ReachParams(*stacked_parameter[_from: steps])
+                _from = steps
+
+    def _stat_by_stacked_parameter(
+            self, stacked_parameter: List[float], basin_def_order: List[Subbasin | Reach],
+    ):
+        self._update_basin_with_stack_params(
+            basin_def_order,
+            stacked_parameter
+        )
+
+        self._run()
+
+        root_node = self._root_node[0]
+        _nse = NSE(
+            root_node.Q_sim,
+            self._Q_obs
+        )
+        return 1 - _nse
+
+    def optimize(self, eps: float = 0.01):
+        basin_def_order, stacked_parameter = self._params_stack()
+
+        upper_bound_stacked = list()
+        lower_bound_stacked = list()
+
+        for basin_def in basin_def_order:
+            if isinstance(basin_def, Subbasin):
+                upper_bound_stacked.extend(SubbasinParams.MaxBoundParams().to_list())
+                lower_bound_stacked.extend(SubbasinParams().to_list())
+            if isinstance(basin_def, Reach):
+                upper_bound_stacked.extend(ReachParams.MaxBoundParams().to_list())
+                lower_bound_stacked.extend(ReachParams().to_list())
+
+        initial_guess = np.array(stacked_parameter)
+        param_bounds = np.column_stack((lower_bound_stacked, upper_bound_stacked))
+
+        optimizer = minimize(
+            fun=self._stat_by_stacked_parameter,
+            x0=initial_guess,
+            args=basin_def_order,
+            method='L-BFGS-B',
+            bounds=param_bounds,
+            options={
+                'eps': eps
+            }
+        )
+        self._update_basin_with_stack_params(
+            basin_def_order,
+            optimizer.x,
+        )
+
+    def show_discharge(self, basin_def: BasinDef):
+        plt.figure()
+        # for basin_def in self._basin_defs:
+        #     plt.plot(self._date, basin_def.Q_sim, label=basin_def.name)
+        plt.plot(self._date, self._Q_obs, label='Obs')
+        plt.plot(self._date, basin_def.Q_sim, label=basin_def.name)
+        plt.title('Observer vs Simulated Discharge')
+        plt.xlabel('Date')
+        plt.ylabel('Q')
+        plt.grid(True)
+        plt.legend()
+        plt.tight_layout()
+        plt.show()
+
+
+    def __str__(self):
+        return """
+"""

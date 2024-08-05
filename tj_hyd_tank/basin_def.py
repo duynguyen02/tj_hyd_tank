@@ -132,6 +132,47 @@ class SubbasinParams(BasinDefParams):
     t3_is: float = 0.01
     t3_soc: float = 0.01
 
+    @classmethod
+    def MaxBoundParams(cls):
+        return cls(
+            t0_is=100.0,
+            t0_boc=0.5,
+            t0_soc_uo=0.5,
+            t0_soc_lo=0.5,
+            t0_soh_uo=100.0,
+            t0_soh_lo=50.0,
+            t1_is=100.0,
+            t1_boc=0.5,
+            t1_soc=0.5,
+            t1_soh=100.0,
+            t2_is=100.0,
+            t2_boc=0.5,
+            t2_soc=0.5,
+            t2_soh=100.0,
+            t3_is=100.0,
+            t3_soc=0.5,
+        )
+
+    def to_list(self):
+        return [
+            self.t0_is,
+            self.t0_boc,
+            self.t0_soc_uo,
+            self.t0_soc_lo,
+            self.t0_soh_uo,
+            self.t0_soh_lo,
+            self.t1_is,
+            self.t1_boc,
+            self.t1_soc,
+            self.t1_soh,
+            self.t2_is,
+            self.t2_boc,
+            self.t2_soc,
+            self.t2_soh,
+            self.t3_is,
+            self.t3_soc,
+        ]
+
 
 class Subbasin(BasinDef):
     def __init__(
@@ -245,6 +286,10 @@ class Subbasin(BasinDef):
     def params(self):
         return self._params
 
+    @params.setter
+    def params(self, value: BasinDefParams):
+        self._params = value
+
     @area.setter
     def area(self, area: float):
         self._area = area
@@ -268,8 +313,21 @@ class Sink(BasinDef):
 
 @dataclasses.dataclass
 class ReachParams(BasinDefParams):
-    k: float = 2.5
-    x: float = 0.25
+    k: float = 0.01
+    x: float = 0.01
+
+    @classmethod
+    def MaxBoundParams(cls):
+        return cls(
+            k=5.0,
+            x=0.5
+        )
+
+    def to_list(self):
+        return [
+            self.k,
+            self.x
+        ]
 
 
 class Reach(BasinDef):
@@ -283,3 +341,7 @@ class Reach(BasinDef):
     @property
     def params(self):
         return self._params
+
+    @params.setter
+    def params(self, value: ReachParams):
+        self._params = value

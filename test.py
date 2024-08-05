@@ -1,9 +1,9 @@
 import pandas as pd
 
-from tj_hyd_tank import TJHydTANK, TANKColNames
+from tj_hyd_tank import TJHydTANK, TANKColNames, Subbasin, Reach
 
-TJHydTANK(
-    'CedarCreek.basin',
+tank = TJHydTANK(
+    'BAHADURABAD.basin',
     pd.read_csv('data_example.csv'),
     TANKColNames(
         date='Date',
@@ -12,3 +12,4 @@ TJHydTANK(
         discharge='Q'
     )
 )
+

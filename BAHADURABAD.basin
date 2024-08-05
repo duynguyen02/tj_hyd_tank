@@ -1,0 +1,70 @@
+Subbasin: BAHADURABAD
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 658813.695603162
+     Canvas Y: 4566675.75032761
+     Label X: 16.0
+     Label Y: 16.0
+     Area: 67.2
+     Downstream: Reach
+
+     Discretization: None
+     File: CedarCreek.sqlite
+
+     Canopy: None
+     Allow Simultaneous Precip Et: No
+     Plant Uptake Method: None
+
+     Surface: None
+
+     LossRate: SCS
+     Percent Impervious Area: 0.0
+     Curve Number: 78.870
+     Initial Abstraction: 0
+
+     Transform: SCS
+     Lag: 143.19
+     Unitgraph Type: STANDARD
+
+     Baseflow: None
+End:
+
+Reach: Reach
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 666374.637393146
+     Canvas Y: 4586689.34802385
+     From Canvas X: 663749.202909911
+     From Canvas Y: 4589530.99475864
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: Junction
+
+     Route: Muskingum
+     Initial Variable: Combined Inflow
+     Muskingum K: 1
+     Muskingum x: 0.2
+     Muskingum Steps: 1
+     Channel Loss: None
+End:
+
+Junction: Junction
+     Description: Generic junction
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 660413.356742977
+     Canvas Y: 4579801.44343842
+     Label X: 16.0
+     Label Y: 16.0
+     Downstream: Sink
+End:
+
+Sink: Sink
+     Description: Generic junction
+     Last Modified Date: 19 February 2023
+     Last Modified Time: 02:40:17
+     Canvas X: 660413.356742977
+     Canvas Y: 4579801.44343842
+     Label X: 16.0
+     Label Y: 16.0
+End:
