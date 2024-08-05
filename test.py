@@ -13,3 +13,5 @@ tank = TJHydTANK(
     )
 )
 
+print(tank)
+

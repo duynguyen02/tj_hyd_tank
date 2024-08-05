@@ -2,18 +2,18 @@ import dataclasses
 import datetime
 import os
 from queue import Queue
-from typing import Optional, List
+from typing import Optional, List, Union
 
 import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 from scipy.optimize import minimize
 
-from .tj_hyd_tank_utils import build_basin_def_and_root_node
-from .basin_def import BasinDef, Subbasin, BasinDefType, Reach, Junction, Sink, SubbasinParams, ReachParams, NSE
+from .basin_def import BasinDef, Subbasin, Reach, Junction, Sink, SubbasinParams, ReachParams, NSE
 from .tank_exception import FileNotFoundException, MissingColumnsException, ColumnContainsEmptyDataException, \
     InvalidDatetimeException, InvalidDatetimeIntervalException, InvalidStartDateException, InvalidEndDateException, \
     InvalidDateRangeException
+from .tj_hyd_tank_utils import build_basin_def_and_root_node
 
 
 @dataclasses.dataclass
@@ -26,8 +26,8 @@ class TANKColNames:
 
 @dataclasses.dataclass
 class TANKConfig:
-    start_date: datetime.datetime | None = None
-    end_date: datetime.datetime | None = None
+    start_date: Union[datetime.datetime, None] = None
+    end_date: Union[datetime.datetime, None] = None
     interval: float = 24.0
 
 
@@ -61,8 +61,12 @@ class TJHydTANK:
         # compute after setup basin
         self._run()
 
+    def reconfig_tank(self, tank_config: TANKConfig):
+        self._tank_config = tank_config
+        self._run()
+
     @property
-    def basin_def(self):
+    def basin_defs(self):
         return self._basin_defs
 
     @property
@@ -352,7 +356,7 @@ class TJHydTANK:
         return basin_def_order, stacked_parameter
 
     @staticmethod
-    def _update_basin_with_stack_params(basin_def_order: List[Subbasin | Reach], stacked_parameter: List[float]):
+    def _update_basin_with_stack_params(basin_def_order: List[Union[Subbasin, Reach]], stacked_parameter: List[float]):
         subbasin_steps = len(SubbasinParams().to_list())
         reach_steps = len(ReachParams().to_list())
         _from = 0
@@ -367,7 +371,7 @@ class TJHydTANK:
                 _from = steps
 
     def _stat_by_stacked_parameter(
-            self, stacked_parameter: List[float], basin_def_order: List[Subbasin | Reach],
+            self, stacked_parameter: List[float], basin_def_order: List[Union[Subbasin, Reach]],
     ):
         self._update_basin_with_stack_params(
             basin_def_order,
@@ -415,6 +419,14 @@ class TJHydTANK:
             optimizer.x,
         )
 
+    def get_basin_def_by_name(self, name: str) -> Union[
+        Subbasin, Junction, Sink, Reach, None
+    ]:
+        for basin_def in self._basin_defs:
+            if basin_def.name == name:
+                return basin_def
+        return None
+
     def show_discharge(self, basin_def: BasinDef):
         plt.figure()
         # for basin_def in self._basin_defs:
@@ -429,7 +441,14 @@ class TJHydTANK:
         plt.tight_layout()
         plt.show()
 
-
     def __str__(self):
-        return """
+        return f"""
+TJ_HYD_TANK 🍃 🌧 ☔ 💦
+FROM: {self._date[0]}
+TO: {self._date[-1]}
+basin_def: {" ".join([basin_def.name for basin_def in self._basin_defs])}
+root_node: {" ".join([basin_def.name for basin_def in self._root_node])}
 """
+
+    def __repr__(self):
+        return self.__str__()
