@@ -37,4 +37,5 @@ class InvalidEndDateException(Exception):
 
 
 class InvalidDateRangeException(Exception):
-    pass
+    def __init__(self, msg: str = ""):
+        super().__init__(msg)
