@@ -154,6 +154,9 @@ class TJHydTANK:
         df = df[required_columns]
         self._df = df
 
+        if end - start <= 3:
+            raise InvalidDateRangeException("Minimum 4 rows of data required")
+
         return start, end
 
     def _build_computation_stack(self):
