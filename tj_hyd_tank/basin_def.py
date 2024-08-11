@@ -3,6 +3,7 @@ from enum import Enum
 from typing import Optional, List
 
 import numpy as np
+import pandas as pd
 
 
 class BasinDefType(Enum):

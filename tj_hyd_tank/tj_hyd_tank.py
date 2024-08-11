@@ -58,8 +58,14 @@ class TJHydTANK:
         self._E: Optional[np.ndarray] = None
         self._Q_obs: Optional[np.ndarray] = None
 
+        self._logs: List[str] = []
+
         # compute after setup basin
         self._run()
+
+    @property
+    def logs(self):
+        return self._logs
 
     def reconfig_tank(self, tank_config: TANKConfig):
         self._tank_config = tank_config
@@ -187,9 +193,9 @@ class TJHydTANK:
     def _tank_discharge(self, subbasin: Subbasin):
         params = subbasin.params
         if params.t0_soh_uo < params.t0_soh_lo:
-            print(
-                f'WARNING-TANK-01 ({subbasin.name}): Invalid parameter upper outlet height is less than lower outlet '
-                f'height (Tank 0)')
+            warnings_msg = f'WARNING-TANK-01 ({subbasin.name}): Invalid parameter upper outlet height is less than lower outlet height (Tank 0)'
+            self._logs.append(warnings_msg)
+            print(warnings_msg)
 
         time_step = self._P.shape[0]
         tank_storage = np.zeros((time_step, 4), dtype=np.float64)
@@ -241,8 +247,9 @@ class TJHydTANK:
                     t, i]
 
                 if total_tank_outflow > tank_storage[t, i]:
-                    print(
-                        f'WARNING-TANK-02 ({subbasin.name}): Total outlet flow exceeded tank storage for tank {i} at timestep {t}')
+                    warnings_msg = f'WARNING-TANK-02 ({subbasin.name}): Total outlet flow exceeded tank storage for tank {i} at timestep {t}'
+                    self._logs.append(warnings_msg)
+                    print(warnings_msg)
 
         unit_conv_coeff = (subbasin.area * 1000) / (self._tank_config.interval * 3600)
         discharge = unit_conv_coeff * side_outlet_flow.sum(axis=1)
@@ -286,7 +293,9 @@ class TJHydTANK:
                 params.k * (1 - params.x) + 0.5 * self._tank_config.interval)
 
         if (c0 + c1 + c2) > 1 or params.x > 0.5 or (self._tank_config.interval / params.k + params.x) > 1:
-            print(f"WARNING-MUSKINGUM-01 ({reach.name}): violates k, x constraints")
+            warning_msg = f"WARNING-MUSKINGUM-01 ({reach.name}): violates k, x constraints"
+            self._logs.append(warning_msg)
+            print(warning_msg)
 
         outflow[0] = inflow[0]
 
@@ -337,6 +346,7 @@ class TJHydTANK:
         return computation_result
 
     def _run(self):
+        self._logs = []
         start, end = self._validate_dataset()
         self._init_data(start, end)
         _ = self._compute()
@@ -443,6 +453,12 @@ class TJHydTANK:
         plt.legend()
         plt.tight_layout()
         plt.show()
+
+    def to_dataframe(self, basin_def: BasinDef):
+        return pd.DataFrame({
+            'Q_obs': self._Q_obs,
+            'Q_sim': basin_def.Q_sim,
+        })
 
     def __str__(self):
         return f"""
