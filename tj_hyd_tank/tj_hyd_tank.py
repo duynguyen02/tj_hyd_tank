@@ -1,6 +1,7 @@
 import dataclasses
 import datetime
 import os
+import pickle
 from queue import Queue
 from typing import Optional, List, Union
 
@@ -459,6 +460,15 @@ class TJHydTANK:
             'Q_obs': self._Q_obs,
             'Q_sim': basin_def.Q_sim,
         })
+
+    def save(self, filename: str = None):
+        with open(f'{filename}.tjtank' if filename is not None else 'tank_model.tjtank', 'wb') as file:
+            pickle.dump(self, file)
+
+    @classmethod
+    def load(cls, model_path: str) -> 'TJHydTANK':
+        with open(model_path, 'rb') as file:
+            return pickle.load(file)
 
     def __str__(self):
         return f"""

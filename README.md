@@ -1,21 +1,26 @@
 # TJ_HYD_NAM
 
-Python implementation of Tank Hydrological model by Sugawara and Funiyuki (1956) , based on the original code
-from [tank-model](https://github.com/nzahasan/tank-model) by [hckaraman](https://github.com/nzahasan)
+**Python implementation of the Tank Hydrological model by Sugawara and Funiyuki (1956), based on the original code
+from [tank-model](https://github.com/nzahasan/tank-model) by [hckaraman](https://github.com/nzahasan).**
 
-### Installation
+## Installation
 
-```
+To install the package, run:
+
+```bash
 pip install tj_hyd_tank
 ```
 
-### Getting Started
+## Getting Started
 
-#### Prepare the Dataset
-##### Dataset
+### Prepare the Dataset
 
-The dataset should include columns: Date, Precipitation, Evapotranspiration, and Discharge, with column
-names customizable.
+#### Dataset Requirements
+
+Your dataset should contain the following columns: **Date**, **Precipitation**, **Evapotranspiration**, and **Discharge
+**. The column names are customizable.
+
+Example:
 
 | Date       | Q       | P   | E    |
 |------------|---------|-----|------|
@@ -28,18 +33,19 @@ names customizable.
 | 10/15/2016 | 0.31299 | 0   | 3.41 |
 | ...        | ...     | ... | ...  |
 
-The time intervals between dates must be equal (e.g., 24 hours) for the model to function accurately.
+Ensure the time intervals between dates are consistent (e.g., 24 hours) for accurate model performance.
 
-##### Basin file
-HEC-HMS basin.
+#### Basin File
 
-#### Quick start
+Use a HEC-HMS basin file.
+
+### Quick Start
+
 ```python
 import pandas as pd
-
 from tj_hyd_tank import TJHydTANK, TANKColNames, TANKConfig
 
-df = pd.read_csv('data_example.csv')
+df = pd.read_csv('assets/data_example.csv')
 tank_cols_name = TANKColNames(
     date='Date',
     precipitation='P',
@@ -53,14 +59,15 @@ tank_config = TANKConfig(
 )
 
 tank = TJHydTANK(
-    basin_file='CedarCreek.basin',
+    basin_file='assets/CedarCreek.basin',
     df=df,
     tank_col_names=tank_cols_name,
     tank_config=tank_config
 )
-tank
 ```
-#### Get basin_defs
+
+### Accessing Basin Definitions
+
 ```python
 from tj_hyd_tank import Subbasin, Reach
 
@@ -70,7 +77,9 @@ for basin_def in tank.basin_defs:
     if isinstance(basin_def, (Subbasin, Reach)):
         print(basin_def.params)
 ```
-#### Get root_node
+
+### Accessing Root Nodes
+
 ```python
 from tj_hyd_tank import Subbasin, Reach
 
@@ -80,13 +89,17 @@ for root_node in tank.root_node:
     if isinstance(root_node, (Subbasin, Reach)):
         print(root_node.params)
 ```
-#### Plot a comparison between Q_obs and Q_sim of a basin_def
+
+### Plotting Q_obs vs Q_sim for a Basin Definition
+
 ```python
 outlet1 = tank.get_basin_def_by_name('Outlet1')
 if outlet1 is not None:
     tank.show_discharge(outlet1)
 ```
-#### Reconfig and show Subbasin 's properties
+
+### Reconfiguring and Displaying Subbasin Properties
+
 ```python
 from tj_hyd_tank import SubbasinParams
 
@@ -108,7 +121,9 @@ if w170 is not None:
         print('bottom_outlet_flow_tank_1', w170.bottom_outlet_flow_tank_1.tolist())
         print('bottom_outlet_flow_tank_2', w170.bottom_outlet_flow_tank_2.tolist())
 ```
-#### Reconfig TANK model
+
+### Reconfiguring the TANK Model
+
 ```python
 tank.reconfig_tank(
     TANKConfig(
@@ -117,12 +132,73 @@ tank.reconfig_tank(
     )
 )
 ```
-#### To DataFrame
+
+### Exporting Data to DataFrame
+
 ```python
 outlet1_df = tank.to_dataframe(outlet1)
 outlet1_df
 ```
-#### Get Logs
+
+### Viewing Logs
+
 ```python
 print(tank.logs)
 ```
+
+## BasinDef Subclass
+
+### `Subbasin`
+
+- Params: `SubbasinParams`
+
+### `Junction`
+
+- Params: `BasinDefParams`
+
+### `Sink`
+
+- Params: `BasinDefParams`
+
+### `Reach`
+
+- Params: `ReachParams`
+
+## Exception Classes
+
+### `InvalidBasinFileException`
+
+Raised when a basin file is invalid, possibly due to incorrect format or corrupted data.
+
+### `FileNotFoundException`
+
+Raised when a specified file cannot be located. The missing file's name is included for easy identification.
+
+### `MissingColumnsException`
+
+Raised when required columns are missing from the dataset. The exception specifies which column is absent.
+
+### `ColumnContainsEmptyDataException`
+
+Raised when a specified column contains empty data, ensuring all necessary fields are populated.
+
+### `InvalidDatetimeException`
+
+Raised for invalid datetime entries, such as incorrect formatting or out-of-range values.
+
+### `InvalidDatetimeIntervalException`
+
+Raised when the provided datetime interval is invalid, ensuring consistency in date ranges or intervals.
+
+### `InvalidStartDateException`
+
+Raised for invalid start dates, particularly for time-based events or ranges.
+
+### `InvalidEndDateException`
+
+Raised for invalid end dates, handling errors related to the conclusion of time-based events or ranges.
+
+### `InvalidDateRangeException`
+
+Raised when the date range is invalid, such as when the start date is after the end date. An optional message may
+provide additional context.
