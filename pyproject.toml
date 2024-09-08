@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "tj-hyd-tank"
-version = "1.1.0"
+version = "1.2.0"
 description = "Python implementation of Tank Hydrological model by Sugawara and Funiyuki (1956)"
 authors = ["Duy Nguyen <duynguyen02.dev@gmail.com>"]
 readme = "README.md"
