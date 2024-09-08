@@ -1,4 +1,6 @@
-# TJ_HYD_NAM
+# TJ_HYD_TANK
+![PyPI - Version](https://img.shields.io/pypi/v/tj-hyd-tank)
+
 
 **Python implementation of the Tank Hydrological model by Sugawara and Funiyuki (1956), based on the original code
 from [tank-model](https://github.com/nzahasan/tank-model) by [hckaraman](https://github.com/nzahasan).**
