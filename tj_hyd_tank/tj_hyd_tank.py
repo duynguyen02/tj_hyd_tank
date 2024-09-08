@@ -65,6 +65,26 @@ class TJHydTANK:
         self._run()
 
     @property
+    def tank_config(self):
+        return self._tank_config
+
+    @property
+    def date(self):
+        return self._date
+
+    @property
+    def P(self):
+        return self._P
+
+    @property
+    def E(self):
+        return self._E
+
+    @property
+    def Q_obs(self):
+        return self._Q_obs
+
+    @property
     def logs(self):
         return self._logs
 
