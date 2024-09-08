@@ -72,6 +72,10 @@ class BasinDef:
         self._stats.pbias = PBIAS(self._Q_sim, Q_obs)
 
     @property
+    def params(self):
+        return self._params
+
+    @property
     def stats(self):
         return self._stats
 
