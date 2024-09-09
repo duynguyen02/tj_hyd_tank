@@ -10,6 +10,7 @@ import pandas as pd
 from matplotlib import pyplot as plt
 from scipy.optimize import minimize
 
+from . import basin_def
 from .basin_def import BasinDef, Subbasin, Reach, Junction, Sink, SubbasinParams, ReachParams, NSE
 from .tank_exception import FileNotFoundException, MissingColumnsException, ColumnContainsEmptyDataException, \
     InvalidDatetimeException, InvalidDatetimeIntervalException, InvalidStartDateException, InvalidEndDateException, \
@@ -38,14 +39,15 @@ class TJHydTANK:
             basin_file: str,
             df: pd.DataFrame,
             tank_col_names: TANKColNames = TANKColNames(),
-            tank_config: TANKConfig = TANKConfig()
-
+            tank_config: TANKConfig = TANKConfig(),
+            basin_defs: Optional[List[BasinDef]] = None,
+            root_node: Optional[List[BasinDef]] = None
     ):
+        if basin_def is None or root_node is None:
+            if not os.path.exists(basin_file):
+                raise FileNotFoundException(basin_file)
 
-        if not os.path.exists(basin_file):
-            raise FileNotFoundException(basin_file)
-
-        basin_defs, root_node = build_basin_def_and_root_node(basin_file)
+            basin_defs, root_node = build_basin_def_and_root_node(basin_file)
 
         self._basin_defs = basin_defs
         self._root_node = root_node
