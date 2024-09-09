@@ -148,6 +148,18 @@ outlet1_df
 print(tank.logs)
 ```
 
+### Initialize a `TJHydTANK` from the `basin_defs` of another `TJHydTANK` (>=1.3.0)
+```python
+tank = TJHydTANK(
+    basin_file='not important',
+    df=df,
+    tank_col_names=tank_cols_name,
+    tank_config=tank_config,
+    basin_defs=other_tank.basin_defs,
+    root_node=other_tank.root_node
+)
+```
+
 ## BasinDef Subclass
 
 ### `Subbasin`
